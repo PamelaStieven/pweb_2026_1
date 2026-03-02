@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de matrícula</title>
+</head>
+<body>
+
+    <form action="/action_page.html">
+        <fieldset>
+            <legend><strong>Formulário Matrícula de Curso</strong></legend>
+            <br>
+            <label for="pnome">Primeiro nome:</label><br>
+            <input type="text" id="pnome" name="pnome"><br>
+
+            <label for="snome">Sobrenome:</label><br>
+            <input type="text" id="snome" name="snome"><br>
+
+            <h3><strong>Curso:</strong></h3>
+
+            <input type="radio" id="tec" name="curso" value="tec">
+            <label for="tec">Técnico em Informática</label><br>
+
+            <input type="radio" id="grad" name="curso" value="grad">
+            <label for="grad">Graduação - Análise e Desenvolvimento de Sistemas</label><br>
+
+            <input type="radio" id="prof" name="curso" value="prof">
+            <label for="prof">Profissionalizante - Programação Web</label>
+
+            <h3><strong>Linguagens de programação de sua preferência:</strong></h3>
+            <input type="checkbox" id="prog1" name="prog1" value="php">
+            <label for="prog1">PHP</label><br>
+
+            <input type="checkbox" id="prog2" name="prog2" value="java">
+            <label for="prog2">Java</label><br>
+
+            <input type="checkbox" id="prog3" name="prog3" value="python">
+            <label for="prog3">Python</label>
+
+            <h3><strong>Escolha um turno:</strong></h3>
+            <select name="turno" id="turno">
+                <option value="manha">Manhã</option>
+                <option value="tarde">Tarde</option>
+                <option value="noite">Noite</option>
+            </select>
+
+            <h3><strong>Escolha uma unidade mais próxima a você:</strong></h3>
+
+            <label for="unidade">Unidade:</label>
+            <input list="unidades" name="unidade" id="unidade">
+
+            <datalist id="unidades">
+                <option value="Chapecó">
+                <option value="Florianópolis">
+                <option value="Joinville">
+                <option value="Blumenau">
+                <option value="São Carlos">
+                <option value="Garopaba">
+                <option value="São Miguel">
+                <option value="Caçador"></option>
+            </datalist>
+
+            <br>
+            <br>
+            <input type="submit" value="Enviar">
+
+        </fieldset>
+    </form>
+    
+</body>
+</html>
