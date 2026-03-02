@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão Acadêmica</title>
+</head>
+<body>
+
+    <form action="/action_page.html">
+        <fieldset>
+            <legend><h3><strong>Sistema de Gestão Acadêmica</h3></strong></legend>
+
+            <h3><strong>Manutenção de Usuário do Sistema Interno</strong></h3>
+
+
+            <label for="login">Login:</label><br>
+            <input type="text" id="login" name="login"><br>
+
+
+            <label for="senha">Senha:</label><br>
+            <input type="text" id="senha" name="senha"><br>
+
+
+            <h3><strong>Status:</strong></h3>
+            <select name="Status" id="Status">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+                <option value="Inexistente">Inexistente</option>
+            </select>
+
+
+            <h3><strong>Tipo:</strong></h3>
+            <input type="radio" id="tec" name="curso" value="tec">
+            <label for="tec">Técnico </label>
+            <input type="radio" id="prof" name="curso" value="prof">
+            <label for="prof">Professor</label>
+            <input type="radio" id="alu" name="curso" value="alu">
+            <label for="alu">Aluno</label><br>
+
+
+            <h3><strong>Data Criação:</strong></h3>
+            <input type="date" id="calendario" name="calendario">
+
+
+            <h3><strong>Perfil:</strong></h3>
+            <input type="radio" id="conv" name="curso" value="conv">
+            <label for="conv">Convidado </label>
+            <input type="radio" id="adm" name="curso" value="adm">
+            <label for="adm">Administrador</label>
+
+
+            <h3><strong>Observação:</strong></h3>
+            <label for="exemplo01"></label>
+            <textarea id="exemplo01" name="exemplo01" rows="4" cols="50">
+            </textarea>
+
+
+            <h3><strong>Módulos:</strong></h3>
+            <input type="checkbox" id="comp" name="comp" value="Compras">
+            <label for="comp">Compras</label>
+            <input type="checkbox" id="bibli" name="bibli" value="Biblioteca">
+            <label for="bibli">Biblioteca</label>
+            <input type="checkbox" id="acad" name="acad" value="Acadêmico">
+            <label for="acad">Acadêmico</label><br>
+            <input type="checkbox" id="doc" name="doc" value="Documentação">
+            <label for="doc">Documentação</label>
+            <input type="checkbox" id="rechu" name="rechu" value="RecursosHumanos">
+            <label for="rechu">Recursos Humanos</label>
+            
+            <br>
+            <br>
+            <input type="submit" value="Salvar">
+            <input type="submit" value="Excluir">
+
+        </fieldset>
+    </form>
+    
+</body>
+</html>
