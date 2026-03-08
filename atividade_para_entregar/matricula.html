@@ -1,60 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
+    <html lang="pt-br">
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Matrículas</title>
+
 </head>
+
 <body>
-    <form action="/action_page.html">
+
+    <form action="sucesso.html">
         <fieldset>
-            <legend><strong> Matrícula de Alunos</strong></legend>
-                <br>
+        <legend><strong>Formulário de Matrícula</strong></legend>
+
+            <fieldset>
+            <legend><strong>Matrícula de Alunos</strong></legend>
+
+            <br>
+
             <label for="pnome">Nome do aluno:</label><br>
-            <input type="text" id="pnome" name="pnome" maxlength="50">
-                <br>
-                <br>
-            <p><strong>Data de Nascimento:</strong></p>
-            <input type="date" id="calendario" name="calendario">
-                <br>
-                <br>
-            <p><strong>E-mail:</strong></p>
-            <input type="email" id="email" name="email">
-                <br>
-                <br>
-            <p><strong>Telefone:</strong></p>
-                <br>
-                <br>
-            <p><strong>Série:</strong></p>
-            <select name="turno" id="turno">
-                <option value="primeiro">1° Ano</option>
-                <option value="segundo">2° Ano</option>
-                <option value="terceiro">3° Ano</option>
-                <option value="quarto">4° Ano</option>
+            <input type="text" id="pnome" name="pnome" maxlength="50" placeholder="José da Silva" required>
+
+            <br><br>
+
+            <label for="calendario"><strong>Data de Nascimento:</strong></label><br>
+            <input type="date" id="calendario" name="calendario" required>
+
+            <br><br>
+
+            <label for="email"><strong>E-mail:</strong></label><br>
+            <input type="email" id="email" name="email" placeholder="aluno@gmail.com" required>
+
+            <br><br>
+
+            <label for="telefone"><strong>Telefone:</strong></label><br>
+            <input type="tel" id="telefone" name="telefone" maxlength="12" placeholder="4999999-9999" required>
+
+            <br><br>
+
+            <label for="serie"><strong>Série:</strong></label><br>
+            <select name="serie" id="serie" required>
+            <option value="">Selecione</option>
+            <option value="primeiro">1° Ano</option>
+            <option value="segundo">2° Ano</option>
+            <option value="terceiro">3° Ano</option>
+            <option value="quarto">4° Ano</option>
             </select>
-                <br>
-                <br>
+
+            <br><br>
+
             <p><strong>Turno Preferencial:</strong></p>
-            <input type="radio" id="Manhã" name="turno" value="Manhã">
-            <label for="Manhã">Manhã</label>
-            <input type="radio" id="Tarde" name="turno" value="Tarde">
-            <label for="Tarde">Tarde</label>
-            <input type="radio" id="Noite" name="turno" value="Noite">
-            <label for="Noite">Noite</label>
-                <br>
-                <br>
-            <p><strong>Atividades Extra - Curriculares:</strong></p>
-            <input type="checkbox" id="tea" name="tea" value="teatro">
+            <input type="radio" id="manha" name="turno" value="manha" required>
+            <label for="manha">Manhã</label>
+            <input type="radio" id="tarde" name="turno" value="tarde">
+            <label for="tarde">Tarde</label>
+            <input type="radio" id="noite" name="turno" value="noite">
+            <label for="noite">Noite</label>
+
+            <br><br>
+
+            <p><strong>Atividades Extra-Curriculares:</strong></p>
+            <input type="checkbox" id="tea" name="atividade" value="teatro">
             <label for="tea">Teatro</label>
-            <input type="checkbox" id="music" name="music" value="musica">
+            <input type="checkbox" id="music" name="atividade" value="musica">
             <label for="music">Música</label>
-            <input type="checkbox" id="bal" name="bal" value="ballet">
+            <input type="checkbox" id="bal" name="atividade" value="ballet">
             <label for="bal">Ballet</label><br>
-            <input type="checkbox" id="pint" name="pint" value="pintura">
+            <input type="checkbox" id="pint" name="atividade" value="pintura">
             <label for="pint">Pintura</label>
-            <input type="checkbox" id="judo" name="judo" value="judo">
+            <input type="checkbox" id="judo" name="atividade" value="judo">
             <label for="judo">Judô</label>
-            <input type="checkbox" id="fut" name="fut" value="futsal">
-            <label for="fut">Futsal</label>
+            <input type="checkbox" id="fut" name="atividade" value="futebol">
+            <label for="fut">Futebol</label>
+
+            <br><br>
+
+            <button type="submit">Submit</button>
+
+            </fieldset>
+        </fieldset>
+
+    </form>
+
 </body>
-</html> 
+</html>

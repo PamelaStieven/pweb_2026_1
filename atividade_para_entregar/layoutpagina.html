@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ficha Cadastral</title>
+</head>
+
+<body>
+
+    <form action="/action_page.html">
+    <fieldset>
+        <h2 align="center">Ficha Cadastral</h2>
+        <table width="500" border="0" cellspacing="1" cellpadding="1">
+        <tr>
+        <td><font face="Arial" size="2">Nome:</font></td>
+        <td>
+            <input type="text" id="pnome" name="pnome" size="55" maxlength="55" placeholder="José da Silva" required>
+        </td>
+        </tr>
+
+        <tr>
+            <td><font face="Arial" size="2">RG:</font></td>
+        <td>
+            <input type="text" id="prg" name="prg" size="13" maxlength="13" placeholder="00.000.000-0" required>
+
+        <font face="Arial" size="2">C.P.F.:</font>
+
+            <input type="text" id="cpf" name="cpf" size="13" maxlength="13" placeholder="000.000.000-00" required>
+        </td>
+        </tr>
+
+        <tr>
+        <td><font face="Arial" size="2">Endereço:</font></td>
+            <td>
+                <input type="text" id="pend" name="pend" size="55" maxlength="55" placeholder="Rua, Número, Bairro, Cidade" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td><font face="Arial" size="2">Sexo:</font></td>
+        <td>
+            <select name="serie" id="serie">
+                <option value="masc">Masculino</option>
+                <option value="fem">Feminino</option>
+            </select>
+        <font face="Arial" size="2">Data Nascimento:</font>
+        <input type="text" size="13" maxlength="13" placeholder="00/00/0000">
+        </td>
+        </tr>
+
+        <tr>
+            <td><font face="Arial" size="2">Situação civil:</font></td>
+        <td>
+            <font face="Arial" size="2">
+            <input type="radio" id="casado" name="civil">Casado(a)
+            <input type="radio" id="solteiro" name="civil">Solteiro(a)
+            <input type="radio" id="viuvo" name="civil">Viúvo(a)
+            </font>
+        </td>
+        </tr>
+
+        <tr>
+            <td>
+            <input type="reset" value="Limpar Dados">
+            </td>
+        </tr>
+
+        </table>
+    </fieldset>
+    </form>
+
+</body>
+</html>
