@@ -52,13 +52,33 @@
             echo $item. "<br>";
         }
         
-        //carros
+    //carros
         echo"<br>";
         $carro = ['modelo' => "Mustang", 'cor' => "Branco", 'ano' => 2026];
 
         echo "O carro é: <br>";
         echo $carro['modelo']. " - ". $carro['cor'];
-        
+
+    // carros 2
+        echo"<br>";
+        $carros = [
+            ['modelo' => "Mustang", 'cor' => "Branco", 'ano' => 2026],
+            ['modelo' => "Fusca", 'cor' => "Verde", 'ano' => 1973],
+            ['modelo' => "Brasília", 'cor' => "Amarela", 'ano' => 1969],
+        ];
+
+        echo "O carro é: <br>";
+        echo $carros[0]['modelo']. " - ". $carros[0]['cor'];
+
+        echo "<br>";
+        echo "<br>";
+
+        foreach ($carros as $indice => $carro) {
+            echo $indice + 1;
+            echo "    "."Modelo: ".$carro['modelo']."  -  "."Ano: ".$carro['ano'];
+            echo "<br>";      
+         }
+
         ?>
         <p> Meu site <?= $carro['modelo']." - ano:" .$carro['ano'] ?> </p>
         

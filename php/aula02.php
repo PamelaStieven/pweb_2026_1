@@ -11,3 +11,5 @@
         $idade = $item ['idade'];
         echo "Indice: $key Nome:$nome Idade:$idade <br>";
     };
+
+?>
