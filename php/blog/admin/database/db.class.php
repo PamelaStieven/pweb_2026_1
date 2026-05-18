@@ -34,6 +34,16 @@ class db {
         }
     }
 
+    //SELECT * FROM 
+    public function all(){
+        $sql = "SELECT * FROM $this->table_name";
+        $st = $this->conn ->prepare($sql);
+        $st->execute();
+
+        return $st->fetchAll(PDO::FETCH_CLASS);
+    }
+
+
     //INSERT INTO tabela (`campo1`, `campo2`, `campo3`) VALUES (?, ?, ?);
     public function store($dados){
         $campos = "";
