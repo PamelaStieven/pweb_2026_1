@@ -67,8 +67,8 @@ class db {
         try{
         $st = $this->conn->prepare($sql);
         $st->execute($vetorData);
-        }catch(PDOExeption $e){
-            var_dump("Erro ao inserir",$e->getMessage());
+        }catch(PDOException $e){
+            throw new Exception("Erro ao inserir",$e->getMessage());
         }
         
         
