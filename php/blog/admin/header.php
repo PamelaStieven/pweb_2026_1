@@ -43,12 +43,11 @@ function showValidationError($errors = [])
   }
 }
 
-function getFormValue($field)
+function getFormValue($data, $field = '')
 {
-  return isset($_POST[$field]) ? $_POST[$field] : '';
+  return isset($data[$field]) ? $data[$field] : '';
 }
 ?>
-
 
 <body>
   <div class="container">

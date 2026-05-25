@@ -60,17 +60,46 @@ class db {
 
         $sql = "INSERT INTO $this->table_name ($campos) VALUES ($marcadores);";
 
-        //código para debugar algum erro
-        //var_dump($sql, $dados):
-        //
-
         try{
         $st = $this->conn->prepare($sql);
         $st->execute($vetorData);
         }catch(PDOException $e){
             throw new Exception("Erro ao inserir",$e->getMessage());
         }
-        
+    }
+
+    public function destroy($id){
+        try{
+            $sql = "DELETE FROM $this->table_name WHERE id=?;";
+            $st = $this->conn ->prepare($sql);
+            $st->execute([$id]);
+        }catch(PDOException $e){
+            throw new Exception("Erro ao deletar".$e->getMessage());
+        }
+    }
+
+      public function search($dados){
+
+        try{
+            $campo = $dados['tipo'];
+            $valor = $dados['valor'];
+            $sql = "SELECT * FROM $this->table_name WHERE $campo LIKE?";
+            $st = $this->conn->prepare($sql);
+            $st->execute(["%$valor%"]);
+
+            return $st->fetchAll(PDO::FETCH_CLASS);
+        }catch(PDOException $e){
+            throw new Exception("Erro ao deletar".$e->getMessage());
+        }
+    }
+
+     public function find($id){
+
+            $sql = "SELECT * FROM $this->table_name WHERE $id = ?";
+            $st = $this->conn->prepare($sql);
+            $st->execute([$id]);
+
+            return $st->fetchObject();
         
     }
 }
