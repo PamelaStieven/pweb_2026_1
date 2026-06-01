@@ -64,7 +64,7 @@ class db {
         $st = $this->conn->prepare($sql);
         $st->execute($vetorData);
         }catch(PDOException $e){
-            throw new Exception("Erro ao inserir",$e->getMessage());
+            throw new Exception("Erro ao inserir". $e->getMessage());
         }
     }
 
@@ -102,5 +102,41 @@ class db {
             return $st->fetchObject();
         
     }
+
+     public function findBy($campo, $valor){
+
+            $sql = "SELECT * FROM $this->table_name WHERE $campo = ?";
+            $st = $this->conn->prepare($sql);
+            $st->execute([$valor]);
+
+            return $st->fetchObject();
+        
+    }
+
+
+    public function update($dados){ 
+        $campos = ""; 
+        $vetorData = []; 
+        $sep = ""; 
+        
+        foreach($dados as $campo => $valor) { 
+            if($campo!== 'id'){ 
+                $campos.= $sep . " $campo = ?"; 
+                $vetorData[] = $valor; 
+                $sep = ", "; 
+            } 
+        } 
+        
+        $vetorData[] = $dados['id']; 
+        $sql = "UPDATE $this->table_name SET $campos WHERE id = ?;"; 
+        
+        try{ $st = $this->conn->prepare($sql); 
+        $st->execute($vetorData); 
+        
+        }catch(PDOException $e){ 
+            throw new Exception("Erro ao atualizar",$e->getMessage()); 
+        } 
+    }
+    
 }
 
