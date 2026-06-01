@@ -113,7 +113,6 @@ class db {
         
     }
 
-
     public function update($dados){ 
         $campos = ""; 
         $vetorData = []; 

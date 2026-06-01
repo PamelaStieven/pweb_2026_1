@@ -32,20 +32,18 @@ if (!empty($_POST)) {
 
         if (empty($errors)) {
 
-        $usuario = $db->findBy('email',$_POST['email']);
+            $usuario = $db->findBy('email',$_POST['email']);
 
-        if($usuario && password_verify($_POST['senha'], $usuario->senha)){
-            $_SESSION['usuario_id'] = $usuario->id;
-            $_SESSION['usuario_nome'] = $usuario->nome;
-            $_SESSION['usuario_email'] = $usuario->email;
+            if($usuario && password_verify($_POST['senha'], $usuario->senha)){
+                $_SESSION['usuario_id'] = $usuario->id;
+                $_SESSION['usuario_nome'] = $usuario->nome;
+                $_SESSION['usuario_email'] = $usuario->email;
 
-            $success = "Registro Salvo com sucesso!";
-            redirect('./index.php');
+                $success = "Registro Salvo com sucesso!";
+                redirect('./index.php');
         }else{
             $actionError = "Email ou senha inválido, por favor tente novamente";
-        }
-
-            
+        }  
         }
     } catch (PDOException $e) {
         $error = $e->getMessage();
