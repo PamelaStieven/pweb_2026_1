@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once("../database/db.class.php");
+
+require_once ('../../db.class.php');
 
 $erro = '';
 
