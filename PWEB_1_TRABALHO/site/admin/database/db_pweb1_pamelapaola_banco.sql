@@ -1,0 +1,75 @@
+CREATE DATABASE IF NOT EXISTS db_pweb1_pamelapaola_banco;
+USE db_pweb1_pamelapaola_banco;
+
+-- 1. Tabela de Usuários
+CREATE TABLE IF NOT EXISTS usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    sobrenome VARCHAR(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    login VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+
+-- Insere o administrador de testes
+INSERT IGNORE INTO usuario (nome, sobrenome, telefone, email, login, senha) 
+VALUES ('Administrador', 'adm', '49999999999', 'admin@ifsc.com', 'admin', '123');
+
+-- Testa se o usuário realmente está lá dentro agora
+SELECT id, nome, login, senha FROM usuario;
+
+-- 2. Tabela de Livros
+CREATE TABLE IF NOT EXISTS livros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(150) NOT NULL,
+    autor VARCHAR(100) NOT NULL,
+    genero VARCHAR(100) NOT NULL,
+    ano_publicacao INT NOT NULL
+);
+
+-- 3. Tabela de Empréstimos (Corrigido o nome para emprestimo)
+CREATE TABLE IF NOT EXISTS emprestimo (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    livro_id INT NOT NULL,
+    usuario_id INT NOT NULL,
+    data_emprestimo DATE NOT NULL,
+    data_devolucao DATE NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (livro_id) REFERENCES livros(id) ON DELETE CASCADE
+);
+
+-- 4. Tabela de Devoluções (Agora funciona porque faz referência a emprestimo)
+CREATE TABLE IF NOT EXISTS devolucoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    emprestimo_id INT NOT NULL,
+    data_devolucao DATE NOT NULL,
+    observacao VARCHAR(250) NULL,
+    FOREIGN KEY (emprestimo_id) REFERENCES emprestimo(id) ON DELETE CASCADE
+);
+
+-- 5. Tabela de Reservas
+CREATE TABLE IF NOT EXISTS reservas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    livro_id INT NOT NULL,
+    data_reserva DATE NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'Ativa',
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (livro_id) REFERENCES livros(id) ON DELETE CASCADE
+);
+
+-- 6. Tabela de Multas (Corrigido para fazer referência a emprestimo)
+CREATE TABLE IF NOT EXISTS multas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    emprestimo_id INT NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    motivo VARCHAR(255) NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'Pendente',
+    FOREIGN KEY (emprestimo_id) REFERENCES emprestimo(id) ON DELETE CASCADE
+);
+
+-- Agora o comando roda com sucesso e insere o administrador no banco!
+INSERT IGNORE INTO usuario (nome, sobrenome, telefone, email, login, senha) 
+VALUES ('Administrador', 'adm', '49999999999', 'admin@ifsc.com', 'admin', '123');

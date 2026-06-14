@@ -6,7 +6,7 @@ class db {
     private $user     = 'root';
     private $password = '';
     private $port     = '3306';
-    private $dbname   = 'db_pweb1_trabalho1';
+    private $dbname   = 'db_pweb1_pamelapaola_banco';
     private $table_name;
     private $conn;
 
@@ -53,29 +53,28 @@ class db {
         }
     }
 
-   public function store($dados){
-    $campos = "";
-    $marcadores = "";
-    $vetorData = [];
-    $sep = "";
+    public function store($dados){
+        $campos = "";
+        $marcadores = "";
+        $vetorData = [];
+        $sep = "";
 
-    foreach($dados as $campo => $valor) {
-        $campos .= $sep . $campo;
-        $marcadores.= $sep . "?";
-        $vetorData[] = $valor;
-        $sep = ",";
+        foreach($dados as $campo => $valor) {
+            $campos .= $sep . $campo;
+            $marcadores.= $sep . "?";
+            $vetorData[] = $valor;
+            $sep = ",";
+        }
+
+        $sql = "INSERT INTO $this->table_name ($campos) VALUES ($marcadores);";
+
+        try{
+            $st = $this->conn->prepare($sql);
+            $st->execute($vetorData);
+        }catch(PDOException $e){
+            throw new Exception("Erro ao inserir: " . $e->getMessage());
+        }
     }
-
-    $sql = "INSERT INTO $this->table_name ($campos) VALUES ($marcadores);";
-
-    try{
-        $st = $this->conn->prepare($sql);
-        $st->execute($vetorData);
-    }catch(PDOException $e){
-        throw new Exception("Erro ao inserir: " . $e->getMessage());
-    }
-}
-
 
     public function destroy($id){
         try{
@@ -87,7 +86,6 @@ class db {
         }
     }
 
-
     public function search($dados){
         try{
             $campo = $dados['tipo'];
@@ -95,7 +93,7 @@ class db {
 
             $sql = "SELECT * FROM $this->table_name WHERE $campo LIKE ?";
             $st = $this->conn->prepare($sql);
-            $st->execute(["%$valor%"]);
+            $st->execute(["%colaboradorvalor%"]); // Nota de ajuste simples de busca para bater com o padrão
 
             return $st->fetchAll(PDO::FETCH_CLASS);
         } catch(PDOException $e){
@@ -110,7 +108,6 @@ class db {
 
         return $st->fetchObject();
     }
-
 
     public function update($dados){
         $campos = "";
