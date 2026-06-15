@@ -95,28 +95,27 @@ class db {
     }
 
     public function search($dados){
-    try{
-        $campo = $dados['tipo'];
-        $valor = $dados['valor'];
+        try{
+            $campo = $dados['tipo'];
+            $valor = $dados['valor'];
 
-        // proteção básica contra campo inválido
-        $permitidos = ['nome', 'sobrenome', 'telefone', 'email', 'login'];
+            $permitidos = ['nome', 'sobrenome', 'telefone', 'email', 'login'];
 
-        if (!in_array($campo, $permitidos)) {
-            $campo = 'nome';
+            if (!in_array($campo, $permitidos)) {
+                $campo = 'nome';
+            }
+
+            $sql = "SELECT * FROM $this->table_name WHERE $campo LIKE ?";
+
+            $st = $this->conn->prepare($sql);
+            $st->execute(["%$valor%"]);
+
+            return $st->fetchAll(PDO::FETCH_CLASS);
+
+        } catch(PDOException $e){
+            throw new Exception("Erro ao buscar: " . $e->getMessage());
         }
-
-        $sql = "SELECT * FROM $this->table_name WHERE $campo LIKE ?";
-
-        $st = $this->conn->prepare($sql);
-        $st->execute(["%$valor%"]);
-
-        return $st->fetchAll(PDO::FETCH_CLASS);
-
-    } catch(PDOException $e){
-        throw new Exception("Erro ao buscar: " . $e->getMessage());
     }
-}
 
     public function find($id){
         $sql = "SELECT * FROM $this->table_name WHERE id = ?";
@@ -132,7 +131,7 @@ class db {
         $sep = "";
 
         foreach($dados as $campo => $valor) {
-            if ($campo !== "id") {
+            if ($campo !== "id" && $campo !== "multa") {
                 $campos .= $sep . "$campo = ?";
                 $vetorData[] = $valor;
                 $sep = ",";
