@@ -12,11 +12,11 @@ CREATE TABLE IF NOT EXISTS usuario (
     senha VARCHAR(255) NOT NULL
 );
 
--- Usuário admin
+
 INSERT IGNORE INTO usuario (nome, sobrenome, telefone, email, login, senha)
 VALUES ('Administrador', 'adm', '49999999999', 'admin@ifsc.com', 'admin', '123');
 
--- 2. Tabela de Livros (mantém genero como você já usa no form)
+
 CREATE TABLE IF NOT EXISTS livros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS livros (
     ano_publicacao INT NOT NULL
 );
 
--- 3. Empréstimos
+
 CREATE TABLE IF NOT EXISTS emprestimo (
     id INT AUTO_INCREMENT PRIMARY KEY,
     livro_id INT NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS emprestimo (
     FOREIGN KEY (livro_id) REFERENCES livros(id) ON DELETE CASCADE
 );
 
--- 4. Devoluções
+
 CREATE TABLE IF NOT EXISTS devolucoes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     emprestimo_id INT NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS devolucoes (
     FOREIGN KEY (emprestimo_id) REFERENCES emprestimo(id) ON DELETE CASCADE
 );
 
--- 5. Reservas
+
 CREATE TABLE IF NOT EXISTS reservas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS reservas (
     FOREIGN KEY (livro_id) REFERENCES livros(id) ON DELETE CASCADE
 );
 
--- 6. Multas
+
 CREATE TABLE IF NOT EXISTS multas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     emprestimo_id INT NOT NULL,
