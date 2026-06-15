@@ -1,0 +1,186 @@
+/* ==========================================================================
+   ESTILOS GERAIS DO SITE (PÚBLICO)
+   ========================================================================== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #c5ad5d;
+}
+
+header {
+  background: linear-gradient(90deg, #6d5f30, #6d5f30);
+}
+
+header .nav-link {
+  transition: 0.3s;
+}
+
+header .nav-link:hover {
+  color: #000000 !important;
+}
+
+header .fw-bold {
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+main {
+  min-height: 70vh;
+}
+
+article section {
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+article section:hover {
+  transform: scale(1.01);
+}
+
+aside div {
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+aside div:hover {
+  background-color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.card {
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+form input,
+form textarea {
+  border-radius: 8px;
+}
+
+form input:focus,
+form textarea:focus {
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+iframe {
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+footer {
+  background: #6d5f30;
+}
+
+footer a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+footer a:hover {
+  color: #6d5f30;
+}
+
+/* Listas gerais e do Aside */
+ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+ul li:hover {
+  color: #ffc107;
+  background-color: rgba(136, 101, 4, 0.1);
+}
+
+aside ul {
+  color: #343a40;
+}
+
+aside ul li {
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS DO PAINEL (ADMINISTRATIVO)
+   ========================================================================== */
+
+/* Carrossel de Livros do Painel */
+#carrosselAdmin .carousel-item {
+  height: 300px; /* Mantém a altura controlada do painel */
+}
+
+#carrosselAdmin .carousel-item img {
+  height: 100% !important;
+  width: auto;
+  object-fit: contain; /* Não distorce nem corta a capa do livro */
+}
+
+/* Efeito de hover nos links da barra lateral */
+.hover-sidebar:hover {
+  background-color: #f8f9fa !important;
+  color: #ffc107 !important;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Animação e comportamento dos Cards de Estatísticas e Ações */
+.card-stat, .card-action {
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card-stat:hover, .card-action:hover {
+  transform: translateY(-2px) !important;
+  border-color: #ffc107 !important;
+}
+
+/* Botões do Sistema */
+.btn {
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   MUDANÇA DO PRETO PARA O AMARELO (CORRIGIDO)
+   ========================================================================== */
+
+/* 1. Altera o texto "Listagem de Livros" e o ícone de marcador para Amarelo */
+.custom-card h3, 
+.custom-card h3 i,
+.custom-card h3.text-dark {
+  color: #ffc107 !important;
+}
+
+/* 2. Força os cabeçalhos da tabela do Bootstrap (.table-dark) a ficarem amarelos com letras pretas */
+.table thead.table-dark th {
+  background-color: #ffc107 !important;
+  color: #000000 !important;
+  font-weight: bold;
+  border-bottom: 2px solid #bfa100;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  footer .container {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}

@@ -1,7 +1,8 @@
 <?php
 include '../header.php';
 include '../autenticacao.php';
-?>
+require_once "../db.class.php";?>
+
 <div class="row">
   <h3>Configuração do Sistema de Multas</h3>
   <div class="alert alert-info col-6 mt-3">

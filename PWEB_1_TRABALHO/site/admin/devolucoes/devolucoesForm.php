@@ -1,7 +1,7 @@
 <?php
 include '../header.php';
 include '../autenticacao.php';
-include_once '../db.class.php';
+require_once "../db.class.php";
 
 $db_emprestimo = new db('emprestimo');
 $usuarios = (new db('usuario'))->all();
