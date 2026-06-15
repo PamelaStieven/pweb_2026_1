@@ -7,7 +7,6 @@ $db_emprestimo = new db('emprestimo');
 $db_usuario = new db('usuario');
 $db_livros = new db('livros');
 
-// LÓGICA DA BAIXA COM CÁLCULO DE MULTA DE R$ 10,00 POR DIA
 if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'dar_baixa') {
     $emp = $db_emprestimo->find($_GET['id']);
     
@@ -19,11 +18,11 @@ if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'dar_baixa')
 
         $hoje = date('Y-m-d');
         
-        // Regra: Prazo de 15 dias para devolver
+        // 15 dias para devolver
         $data_limite = date('Y-m-d', strtotime($data_emprestimo . " + 15 days"));
         
         $valor_multa = 0;
-        // Se a data de hoje passou dos 15 dias permitidos, calcula R$ 2 por dia de atraso
+        // passou dos 15 dias permitidos, calcula R$ 2 por dia de atraso
         if ($hoje > $data_limite) {
             $dias_atraso = round((strtotime($hoje) - strtotime($data_limite)) / (60 * 60 * 24));
             $valor_multa = $dias_atraso * 5.00; 
@@ -34,8 +33,8 @@ if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'dar_baixa')
             'usuario_id'      => $usuario_id,
             'livro_id'        => $livro_id,
             'data_emprestimo' => $data_emprestimo,
-            'data_devolucao'  => $hoje, // Registra o dia que o material foi devolvido
-            'multa'           => $valor_multa // Salva o valor gerado (Certifique-se se seu banco tem essa coluna ou usaremos dinâmico na listagem)
+            'data_devolucao'  => $hoje, 
+            'multa'           => $valor_multa 
         ];
         
         $db_emprestimo->update($dados_atualizacao);
@@ -85,7 +84,6 @@ $dados = $db_emprestimo->all();
 
               $data_limite = date('Y-m-d', strtotime($data_emprestimo . " + 15 days"));
               
-              // Calcula o valor dinamicamente para garantir exibição correta
               $valor_multa = 0;
               if ($data_devolucao > $data_limite) {
                   $dias_atraso = round((strtotime($data_devolucao) - strtotime($data_limite)) / (60 * 60 * 24));

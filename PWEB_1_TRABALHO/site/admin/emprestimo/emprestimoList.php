@@ -8,7 +8,6 @@ $db_usuario = new db('usuario');
 $db_livros = new db('livros');
 $dados = [];
 
-// DELETAR REGISTRO
 if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'excluir') {
     $db->destroy($_GET['id']);
     echo "<script>window.location.href='emprestimoList.php';</script>";
@@ -49,7 +48,7 @@ $dados = $db->all();
               $data_emprestimo = isset($item->data_emprestimo) ? $item->data_emprestimo : $item['data_emprestimo'];
               $data_devolucao  = isset($item->data_devolucao) ? $item->data_devolucao : $item['data_devolucao'];
 
-              // Busca os nomes correspondentes nas outras tabelas
+              // Busca os nomes nas outras tabelas
               $u = $db_usuario->find($usuario_id);
               $l = $db_livros->find($livro_id);
               

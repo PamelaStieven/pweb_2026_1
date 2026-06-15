@@ -7,7 +7,7 @@ $db = new db('reservas');
 $db_usuario = new db('usuario');
 $db_livros = new db('livros');
 
-// EXCLUIR RESERVA
+// excluir
 if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'excluir') {
     $db->destroy($_GET['id']);
     echo "<script>window.location.href='reservasList.php';</script>";

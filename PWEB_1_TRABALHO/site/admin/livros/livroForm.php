@@ -6,12 +6,12 @@ include_once '../db.class.php';
 $db = new db('livros');
 $objeto = null;
 
-// CARREGAR DADOS PARA EDIÇÃO
+//edicao
 if (!empty($_GET['id'])) {
   $objeto = $db->find($_GET['id']);
 }
 
-// SALVAR OU ATUALIZAR
+// salva
 if (!empty($_POST)) {
   if (!empty($_POST['id'])) {
     $db->update($_POST);
@@ -19,7 +19,6 @@ if (!empty($_POST)) {
     $_POST['id'] = time();
     $db->store($_POST);
   }
-  // Redireciona de volta usando a letra maiúscula correta
   echo "<script>window.location.href='livroList.php';</script>";
   exit;
 }
