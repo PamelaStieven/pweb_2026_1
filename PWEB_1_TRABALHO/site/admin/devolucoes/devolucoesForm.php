@@ -8,18 +8,16 @@ $usuarios = (new db('usuario'))->all();
 $livros = (new db('livros'))->all();
 $objeto = null;
 
-// Se receber um ID por GET, busca o empréstimo para edição
 if (!empty($_GET['id'])) {
   $objeto = $db_emprestimo->find($_GET['id']);
 }
 
-// Quando o formulário é enviado
 if (!empty($_POST)) {
   if (!empty($_POST['id'])) {
-    // Se o ID já existe, atualiza o registro com os novos dados informados
+   
     $db_emprestimo->update($_POST);
   } else {
-    // Se for um registro manual do zero, gera um ID baseado no tempo
+   
     $_POST['id'] = time();
     $db_emprestimo->store($_POST);
   }
@@ -28,7 +26,7 @@ if (!empty($_POST)) {
 }
 ?>
 <div class="row">
-  <h3>📥 Registrar / Editar Devolução Manual</h3>
+  <h3> Registrar / Editar Devolução Manual</h3>
   
   <form action="devolucaoForm.php" method="post" class="col-6 mt-3">
     <input type="hidden" name="id" value="<?php echo isset($objeto->id) ? $objeto->id : ($objeto['id'] ?? ''); ?>">

@@ -62,6 +62,10 @@ class db {
             $dados['id'] = $st->fetchObject()->id;
         }
 
+        if (!isset($dados['status']) && $this->table_name === 'reservas') {
+            $dados['status'] = 'pendente';
+        }
+
         $campos = "";
         $marcadores = "";
         $vetorData = [];
