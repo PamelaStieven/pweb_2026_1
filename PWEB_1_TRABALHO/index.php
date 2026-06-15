@@ -43,7 +43,7 @@ include 'site/admin/autenticacao.php';
     </p>
     
     <p>
-        <a href="site/admin/auth/logout.php"><button style="color: red;">Sair</button></a>
+        <a href="site/admin/login.php"><button style="color: red;">Sair</button></a>
     </p>
 
 </body>

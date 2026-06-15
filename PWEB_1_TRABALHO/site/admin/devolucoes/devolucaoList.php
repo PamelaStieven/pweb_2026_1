@@ -7,7 +7,7 @@ $db_emprestimo = new db('emprestimo');
 $db_usuario = new db('usuario');
 $db_livros = new db('livros');
 
-// 🔄 LÓGICA DA BAIXA COM CÁLCULO DE MULTA DE R$ 10,00 POR DIA
+// LÓGICA DA BAIXA COM CÁLCULO DE MULTA DE R$ 10,00 POR DIA
 if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'dar_baixa') {
     $emp = $db_emprestimo->find($_GET['id']);
     
@@ -23,10 +23,10 @@ if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'dar_baixa')
         $data_limite = date('Y-m-d', strtotime($data_emprestimo . " + 15 days"));
         
         $valor_multa = 0;
-        // Se a data de hoje passou dos 15 dias permitidos, calcula R$ 10 por dia de atraso
+        // Se a data de hoje passou dos 15 dias permitidos, calcula R$ 2 por dia de atraso
         if ($hoje > $data_limite) {
             $dias_atraso = round((strtotime($hoje) - strtotime($data_limite)) / (60 * 60 * 24));
-            $valor_multa = $dias_atraso * 10.00; 
+            $valor_multa = $dias_atraso * 5.00; 
         }
 
         $dados_atualizacao = [
@@ -47,7 +47,7 @@ if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'dar_baixa')
 $dados = $db_emprestimo->all();
 ?>
 <div class="row">
-  <h3>📜 Histórico de Devoluções (Livros Entregues)</h3>
+  <h3>Histórico de Devoluções (Livros Entregues)</h3>
   <div class="mt-2">
       <a href="../index.php" class="btn btn-secondary">Voltar ao Painel</a>
   </div>
@@ -89,7 +89,7 @@ $dados = $db_emprestimo->all();
               $valor_multa = 0;
               if ($data_devolucao > $data_limite) {
                   $dias_atraso = round((strtotime($data_devolucao) - strtotime($data_limite)) / (60 * 60 * 24));
-                  $valor_multa = $dias_atraso * 10.00;
+                  $valor_multa = $dias_atraso * 5.00;
               }
 
               $u = $db_usuario->find($usuario_id);

@@ -10,12 +10,12 @@ $db_livros = new db('livros');
 $dados = $db_emprestimo->all();
 
 // Configuração do sistema de multas
-$dias_permitidos = 7; // Aluno pode ficar até 7 dias com o livro
-$valor_por_dia_atraso = 2.00; // R$ 2,00 por dia de atraso
+$dias_permitidos = 15; // Aluno pode ficar até 7 dias com o livro
+$valor_por_dia_atraso = 5.00; // R$ 2,00 por dia de atraso
 ?>
 
 <div class="row">
-  <h3>⚖️ Controle de Multas por Atraso</h3>
+  <h3>Controle de Multas por Atraso</h3>
   <p class="text-muted">Listagem de alunos com devoluções atrasadas ou empréstimos vencidos.</p>
   <div class="mt-2">
       <a href="../index.php" class="btn btn-secondary">Voltar ao Painel</a>

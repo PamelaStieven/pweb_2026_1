@@ -34,7 +34,7 @@ if (!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== true)
         <br>
         <li><a href="emprestimo/emprestimoList.php">Empréstimos Ativos</a></li>
         <br>
-        <li><a href="devolucoes/devolucoesList.php">Registro de Devoluções</a></li>
+        <li><a href="devolucoes/devolucaoList.php">Registro de Devoluções</a></li>
         <br>
         <li><a href="multas/multasList.php"> Ver Multas Aplicadas</a></li>
         <br>
@@ -49,7 +49,7 @@ if (!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== true)
         <a href="../../index.php"><button>Ver Página Inicial (Site)</button></a>
         
         <!-- Botão de deslogar definitivo -->
-        <a href="auth/logout.php"><button style="color: red;">Sair do Sistema</button></a>
+        <a href="./login.php"><button style="color: red;">Sair do Sistema</button></a>
     </p>
 
 </body>

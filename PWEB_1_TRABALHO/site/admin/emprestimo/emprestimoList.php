@@ -8,7 +8,7 @@ $db_usuario = new db('usuario');
 $db_livros = new db('livros');
 $dados = [];
 
-// ❌ DELETAR REGISTRO
+// DELETAR REGISTRO
 if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'excluir') {
     $db->destroy($_GET['id']);
     echo "<script>window.location.href='emprestimoList.php';</script>";
@@ -18,7 +18,7 @@ if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'excluir') {
 $dados = $db->all();
 ?>
 <div class="row">
-  <h3>📋 Gerenciamento de Empréstimos</h3>
+  <h3>Gerenciamento de Empréstimos</h3>
   <div class="mt-2">
       <a href="./emprestimoForm.php" class="btn btn-success">Novo Empréstimo</a>
       <a href="../index.php" class="btn btn-secondary">Voltar ao Painel</a>
@@ -66,8 +66,7 @@ $dados = $db->all();
                     <td>{$dt_emp}</td>
                     <td>{$dt_dev}</td>
                     <td>
-                    <a class='btn btn-success btn-sm' onclick='return confirm(\"Confirmar devolução e gerar registro?\")' href='../devolucao/devolucaoList.php?id={$id}&acao=transferir'>Devolver</a>
-                      
+                      <a class='btn btn-success btn-sm' onclick='return confirm('Confirmar devolução e gerar registro?')' href='../devolucoes/devolucaoList.php?id={$id}&acao=dar_baixa'>Devolver</a>                      
                       <a class='btn btn-warning btn-sm' href='./emprestimoForm.php?id={$id}'>Editar</a>
                       <a class='btn btn-danger btn-sm' onclick='return confirm(\"Deseja Excluir?\")' href='./emprestimoList.php?id={$id}&acao=excluir'>Excluir</a>
                     </td>
