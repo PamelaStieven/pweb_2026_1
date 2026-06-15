@@ -6,7 +6,7 @@ include_once '../db.class.php';
 $db = new db('livros');
 $dados = [];
 
-// DELETAR (Se vier ID pela URL)
+// exclui
 if (!empty($_GET['id'])) {
     try {
         $db->destroy($_GET['id']);
@@ -17,7 +17,7 @@ if (!empty($_GET['id'])) {
     }
 }
 
-// SE CLICOU EM BUSCAR
+// buscar
 if (!empty($_POST) && !empty($_POST['valor'])) {
     $dados = $db->all();
     $valor_busca = strtolower($_POST['valor']);
@@ -28,7 +28,6 @@ if (!empty($_POST) && !empty($_POST['valor'])) {
         return strpos(strtolower($campo_valor), $valor_busca) !== false;
     });
 } else {
-    // SE NÃO BUSCOU, TRAZ TODOS
     $dados = $db->all();
 }
 ?>

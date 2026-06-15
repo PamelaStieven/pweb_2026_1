@@ -35,7 +35,7 @@ if (!empty($_POST)) {
     <div class="mb-3">
       <label class="form-label">Usuário / Aluno</label>
       <select name="usuario_id" class="form-select" required>
-        <option value="">-- Selecione --</option>
+        <option value=""> Selecione </option>
 
         <?php foreach ($usuarios as $u): 
           $u_id = isset($u->id) ? $u->id : $u['id'];
@@ -54,7 +54,7 @@ if (!empty($_POST)) {
     <div class="mb-3">
       <label class="form-label">Livro</label>
       <select name="livro_id" class="form-select" required>
-        <option value="">-- Selecione --</option>
+        <option value=""> Selecione </option>
 
         <?php foreach ($livros as $l): 
           $l_id = isset($l->id) ? $l->id : $l['id'];

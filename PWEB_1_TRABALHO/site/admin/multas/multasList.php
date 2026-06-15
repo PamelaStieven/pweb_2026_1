@@ -9,9 +9,8 @@ $db_livros = new db('livros');
 
 $dados = $db_emprestimo->all();
 
-// Configuração do sistema de multas
-$dias_permitidos = 15; // Aluno pode ficar até 7 dias com o livro
-$valor_por_dia_atraso = 5.00; // R$ 2,00 por dia de atraso
+$dias_permitidos = 15; 
+$valor_por_dia_atraso = 5.00; 
 ?>
 
 <div class="row">
@@ -45,13 +44,13 @@ $valor_por_dia_atraso = 5.00; // R$ 2,00 por dia de atraso
               $data_emprestimo = isset($item->data_emprestimo) ? $item->data_emprestimo : $item['data_emprestimo'];
               $data_devolucao  = isset($item->data_devolucao) ? $item->data_devolucao : ($item['data_devolucao'] ?? '');
 
-              // Calcula a data limite para devolução (Data de Empréstimo + X dias)
+              // data para devolver
               $data_limite = date('Y-m-d', strtotime($data_emprestimo . " + {$dias_permitidos} days"));
               
               $dias_atraso = 0;
               $situacao = "";
 
-              // Caso 1: Já devolveu, mas devolveu com atraso
+              // devolveu com atraso
               if (!empty($data_devolucao) && $data_devolucao != '0000-00-00') {
                   if ($data_devolucao > $data_limite) {
                       $time_limite = strtotime($data_limite);
@@ -60,7 +59,7 @@ $valor_por_dia_atraso = 5.00; // R$ 2,00 por dia de atraso
                       $situacao = "<span class='badge bg-secondary'>Devolvido com Atraso</span>";
                   }
               } 
-              // Caso 2: Ainda não devolveu e já passou do prazo (atrasado hoje)
+              // não devolveu e ja esta atrasado
               else {
                   $hoje = date('Y-m-d');
                   if ($hoje > $data_limite) {
@@ -71,7 +70,6 @@ $valor_por_dia_atraso = 5.00; // R$ 2,00 por dia de atraso
                   }
               }
 
-              // Se não tem dias de atraso, pula para o próximo registro
               if ($dias_atraso <= 0) {
                   continue;
               }
@@ -79,7 +77,6 @@ $valor_por_dia_atraso = 5.00; // R$ 2,00 por dia de atraso
               $tem_multa = true;
               $valor_multa = $dias_atraso * $valor_por_dia_atraso;
 
-              // Busca dados do Aluno e do Livro tratando Objeto ou Array
               $u = $db_usuario->find($usuario_id);
               $l = $db_livros->find($livro_id);
               
