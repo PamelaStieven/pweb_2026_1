@@ -11,17 +11,11 @@ CREATE TABLE IF NOT EXISTS usuario (
     senha VARCHAR(255) NOT NULL
 );
 
-<<<<<<< HEAD
 
 INSERT IGNORE INTO usuario (nome, sobrenome, telefone, email, login, senha)
 VALUES ('Administrador', 'adm', '49999999999', 'admin@ifsc.com', 'admin', '123');
 
 
-=======
-INSERT IGNORE INTO usuario (nome, sobrenome, telefone, email, login, senha)
-VALUES ('Administrador', 'adm', '49999999999', 'admin@ifsc.com', 'admin', '123');
-
->>>>>>> a885ef8bceb9e1a071bee4ea5d0f1756079ce17c
 CREATE TABLE IF NOT EXISTS livros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
