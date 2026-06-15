@@ -2,7 +2,7 @@
 session_start();
 
 // Puxa a classe do banco
-require_once "db.class.php";
+require_once "../db.class.php";
 $db = new db('usuario');
 
 // Se o usuário clicou em excluir, deleta direto pelo ID
@@ -78,7 +78,7 @@ if (!empty($_POST['valor'])) {
             </table>
             
             <div class="mt-3">
-                <a href="index.php" class="btn btn-outline-dark">Voltar ao Painel</a>
+                <a href="../index.php" class="btn btn-outline-dark">Voltar ao Painel</a>
             </div>
         </div>
     </div>

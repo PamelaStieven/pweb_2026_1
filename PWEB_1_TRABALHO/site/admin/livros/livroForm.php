@@ -52,6 +52,9 @@ if (!empty($_POST)) {
 
     <button type="submit" class="btn btn-success">Salvar</button>
     <a href="livroList.php" class="btn btn-secondary">Voltar</a>
+     <div class="mt-3">
+                <a href="../index.php" class="btn btn-outline-dark">Voltar ao Painel</a>
+            </div>
   </form>
 </div>
 

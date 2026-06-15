@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once "db.class.php";
+require_once "../db.class.php";
 $db = new db('usuario');
 
 $id = $_GET['id'] ?? '';

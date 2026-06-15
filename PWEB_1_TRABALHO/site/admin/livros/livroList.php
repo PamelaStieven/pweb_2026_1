@@ -96,6 +96,9 @@ if (!empty($_POST) && !empty($_POST['valor'])) {
       ?>
     </tbody>
   </table>
+   <div class="mt-3">
+                <a href="../index.php" class="btn btn-outline-dark">Voltar ao Painel</a>
+            </div>
 </div>
 
 <?php
