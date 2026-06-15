@@ -5,25 +5,23 @@ $db = new db('usuario');
 $mensagem = '';
 
 if (!empty($_POST)) {
-    // Pegando todos os campos que vêm do formulário da tela
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
     $login = $_POST['login'];
-    $senha = $_POST['senha']; // Aqui pega a senha real digitada!
+    $senha = $_POST['senha']; 
 
     if (empty($nome) || empty($sobrenome) || empty($login) || empty($senha)) {
         $mensagem = "Por favor, preencha os campos obrigatórios!";
     } else {
-        // Envia os dados dinâmicos corretos para o banco
         $db->store([
             'nome' => $nome,
             'sobrenome' => $sobrenome,
             'telefone' => $telefone,
             'email' => $email,
             'login' => $login,
-            'senha' => $senha // Salva a senha que você digitou (ex: 1911)
+            'senha' => $senha                   
         ]);
 
         // Avisa que deu certo e manda para o login
