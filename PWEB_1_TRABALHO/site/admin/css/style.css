@@ -112,15 +112,17 @@ aside ul li {
    ESTILOS ESPECÍFICOS DO PAINEL (ADMINISTRATIVO)
    ========================================================================== */
 
-/* Carrossel de Livros do Painel */
-#carrosselAdmin .carousel-item {
-  height: 300px; /* Mantém a altura controlada do painel */
+/* Ajuste para o container do carrossel */
+#carrosselLivros {
+    background-color: #343a40 !important;
 }
 
-#carrosselAdmin .carousel-item img {
-  height: 100% !important;
-  width: auto;
-  object-fit: contain; /* Não distorce nem corta a capa do livro */
+/* Garante que a imagem preencha o espaço sem deformar */
+.carousel-inner img {
+    width: 100%;
+    height: 350px !important;
+    object-fit: cover; /* 'cover' preenche o container, 'contain' mostra a imagem inteira com bordas */
+    filter: brightness(0.7); /* Escurece um pouco a imagem para o texto ficar legível */
 }
 
 /* Efeito de hover nos links da barra lateral */
