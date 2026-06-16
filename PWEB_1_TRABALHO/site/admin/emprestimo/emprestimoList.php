@@ -13,7 +13,7 @@ $dados = [];
 
 if (!empty($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'excluir') {
     $db->destroy($_GET['id']);
-    echo "<script>window.location.href='../emprestimos/emprestimoList.php';</script>";
+    echo "<script>window.location.href='../emprestimo/emprestimoList.php';</script>";
     exit;
 }
 

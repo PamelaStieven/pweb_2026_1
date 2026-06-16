@@ -47,7 +47,7 @@ $fotos_estrutura = [
           </a>
         </li>
         <li><a href="usuario/usuarioList.php" class="nav-link py-2.5 px-3 rounded text-dark hover-sidebar"><i class="fa-solid fa-users me-2" style="color: #ffc107;"></i> Leitores</a></li>
-        <li><a href="livros/livroList.php" class="nav-link py-2.5 px-3 rounded text-dark hover-sidebar"><i class="fa-solid fa-book-open me-2" style="color: #ffc107;"></i> Acervo</a></li>
+        <li><a href="livros/livroList.php" class="nav-link py-2.5 px-3 rounded text-dark hover-sidebar"><i class="fa-solid fa-book-open me-2" style="color: #ffc107;"></i> Livros</a></li>
         <li><a href="emprestimo/emprestimoList.php" class="nav-link py-2.5 px-3 rounded text-dark hover-sidebar"><i class="fa-solid fa-business-time me-2" style="color: #ffc107;"></i> Empréstimos</a></li>
         <li><a href="devolucoes/devolucaoList.php" class="nav-link py-2.5 px-3 rounded text-dark hover-sidebar"><i class="fa-solid fa-clipboard-check me-2" style="color: #ffc107;"></i> Devoluções</a></li>
         <li><a href="multas/multasList.php" class="nav-link py-2.5 px-3 rounded text-dark hover-sidebar"><i class="fa-solid fa-receipt me-2" style="color: #ffc107;"></i> Multas</a></li>

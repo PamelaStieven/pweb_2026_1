@@ -22,7 +22,7 @@ if (!empty($_POST)) {
     $_POST['id'] = time();
     $db->store($_POST);
   }
-  echo "<script>window.location.href='../emprestimos/emprestimoList.php';</script>";
+  echo "<script>window.location.href='../emprestimo/emprestimoList.php';</script>";
   exit;
 }
 ?>

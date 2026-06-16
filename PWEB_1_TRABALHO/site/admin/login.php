@@ -5,7 +5,6 @@ require_once "db.class.php";
 $db = new db('usuario');
 $mensagem_erro = '';
 
-// Força a inserção do administrador básico se a tabela estiver vazia
 try {
     $teste_usuario = $db->findBy('login', 'admin');
     if (is_array($teste_usuario) && !empty($teste_usuario)) {

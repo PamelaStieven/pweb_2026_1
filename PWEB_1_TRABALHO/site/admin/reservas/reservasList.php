@@ -108,59 +108,6 @@ $dados = $db->all();
 
 </div>
 
-<<<<<<< Updated upstream
 <?php 
 include '../footer.php'; 
-=======
-<div class="row mt-4">
-
-<table class="table table-striped table-hover">
-
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Usuário</th>
-            <th>Livro</th>
-            <th>Data da Reserva</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-    <?php
-
-    if (empty($dados)) {
-
-        echo "<tr>
-                <td colspan='6' align='center'>
-                    Nenhuma reserva cadastrada.
-                </td>
-              </tr>";
-
-    } else {
-
-        foreach ($dados as $item) {
-
-            $u = $db_usuario->find($item->usuario_id);
-            $l = $db_livros->find($item->livro_id);
-
-            $nome_usuario = $u ? $u->nome . " " . $u->sobrenome : "Não encontrado";
-            $nome_livro = $l ? $l->titulo : "Não encontrado";
-
-            $dt_res = date('d/m/Y', strtotime($item->data_reserva));
-
-            echo "<tr>
-                    <th scope='row'>{$item->id}</th>
-                    <td>{$nome_usuario}</td>
-                    <td>{$nome_livro}</td>
-                    <td>{$dt_res}</td>
-                    <td>
-                        <a class='btn btn-warning btn-sm'href='reservasForm.php?id={$item->id}'>Editar</a>
-                        <a class='btn btn-danger btn-sm'onclick='return confirm(\"Deseja Excluir?\")'href='reservasList.php?id={$item->id}&acao=excluir'>Excluir</a>
-                    </td>
-                </tr>";
-        }
-    }
->>>>>>> Stashed changes
 ?>
