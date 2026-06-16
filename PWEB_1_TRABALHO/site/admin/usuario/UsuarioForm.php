@@ -12,13 +12,12 @@ $success = '';
 $actionError = '';
 $errors = [];
 
-// Busca o usuário se o ID for passado via GET
 if (!empty($_GET['id'])) {
     $usuario = $db->find($_GET['id']);
 }
 
 if (!empty($_POST)) {
-    // Mantém o POST em formato de objeto para compatibilidade com as funções de visualização se necessário
+    
     $data_obj = (object) $_POST;
     
     try {

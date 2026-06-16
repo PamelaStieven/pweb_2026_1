@@ -52,7 +52,6 @@ if (!empty($_POST['valor'])) {
         
         <hr class="text-secondary">
         <div class="d-flex flex-column gap-2">
-          <a href="../../../index.php" class="btn btn-sm btn-outline-dark w-100"><i class="fa-solid fa-globe me-2"></i>Ver Site</a>
           <a href="../login.php" class="btn btn-sm btn-outline-danger w-100"><i class="fa-solid fa-right-from-bracket me-2"></i>Sair do Painel</a>
         </div>
       </div>

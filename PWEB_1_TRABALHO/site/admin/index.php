@@ -15,7 +15,6 @@ if (!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== true)
 include 'header.php';
 include_once 'db.class.php'; 
 
-// Dados do Carrossel de Gêneros
 $generos = [
     ['nome' => 'Ficção', 'icon' => 'fa-book-open', 'cor' => '#ffc107'],
     ['nome' => 'Fantasia', 'icon' => 'fa-wand-magic-sparkles', 'cor' => '#6c757d'],
@@ -24,7 +23,6 @@ $generos = [
     ['nome' => 'Infantil', 'icon' => 'fa-child', 'cor' => '#20c997']
 ];
 
-// Dados da Estrutura Física
 $fotos_estrutura = [
     ['arquivo' => 'exterior.webp', 'titulo' => 'Fachada Principal'],
     ['arquivo' => 'interior_01.webp', 'titulo' => 'Área de Leitura'],
@@ -35,17 +33,16 @@ $fotos_estrutura = [
 <div class="container-fluid p-0 bg-light" style="min-height: 100vh;">
   <div class="row g-0">
     
-    <!-- Sidebar -->
     <div class="col-md-3 col-lg-2 d-flex flex-column p-3 bg-white border-end" style="min-height: 100vh;">
-      <a href="#" class="d-flex align-items-center mb-4 me-md-auto text-decoration-none">
+      <div class="d-flex align-items-center mb-4 me-md-auto text-decoration-none">
         <i class="fa-solid fa-book-bookmark me-2" style="color: #ffc107;"></i>
         <span class="fs-5 fw-bold text-dark" style="letter-spacing: 1px;">ACCIO LIBRARY</span>
-      </a>
+      </div>
       <hr class="text-secondary">
       
       <ul class="nav nav-pills flex-column mb-auto gap-2">
         <li class="nav-item">
-          <a href="#" class="nav-link active py-2.5 px-3 rounded text-dark fw-bold" style="background-color: #ffc107;">
+          <a href="index.php" class="nav-link active py-2.5 px-3 rounded text-dark fw-bold" style="background-color: #ffc107;">
             <i class="fa-solid fa-chart-pie me-2"></i> Pagina Inicial
           </a>
         </li>
@@ -59,18 +56,14 @@ $fotos_estrutura = [
       
       <hr class="text-secondary">
       <div class="d-flex flex-column gap-2">
-        <a href="../../index.php" class="btn btn-sm btn-outline-dark w-100"><i class="fa-solid fa-globe me-2"></i>Ver Site</a>
-        <a href="./login.php" class="btn btn-sm btn-outline-danger w-100"><i class="fa-solid fa-right-from-bracket me-2"></i>Sair do Painel</a>
+        <a href="login.php" class="btn btn-sm btn-outline-danger w-100"><i class="fa-solid fa-right-from-bracket me-2"></i>Sair do Painel</a>
       </div>
     </div>
 
-    <!-- Conteúdo Principal -->
     <div class="col-md-9 col-lg-10 p-4 p-md-5 bg-white">
       
-      <!-- Seção 1: Gêneros -->
       <div class="mb-5 border-bottom pb-4">
         <h1 class="fw-bold text-dark m-0 h2">Gêneros em Destaque</h1>
-        <span class="text-muted small">Gerencie as categorias de livros do seu acervo</span>
       </div>
 
       <div class="row justify-content-center mb-5">
@@ -100,7 +93,6 @@ $fotos_estrutura = [
         </div>
       </div>
 
-      <!-- Seção 2: Estrutura Física -->
       <div class="pt-4 border-top">
         <h3 class="fw-bold text-dark mb-4"><i class="fa-solid fa-building me-2" style="color: #ffc107;"></i>Estrutura Física</h3>
         <div class="row g-4">

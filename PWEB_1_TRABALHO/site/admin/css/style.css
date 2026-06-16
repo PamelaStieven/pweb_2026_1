@@ -1,6 +1,3 @@
-/* ==========================================================================
-   ESTILOS GERAIS DO SITE (PÚBLICO)
-   ========================================================================== */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -108,11 +105,6 @@ aside ul li {
   border-bottom: 1px solid #dee2e6;
 }
 
-/* ==========================================================================
-   ESTILOS ESPECÍFICOS DO PAINEL (ADMINISTRATIVO)
-   ========================================================================== */
-
-/* Ajuste para o container do carrossel */
 #carrosselLivros {
     background-color: #343a40 !important;
 }
@@ -121,18 +113,16 @@ aside ul li {
 .carousel-inner img {
     width: 100%;
     height: 350px !important;
-    object-fit: cover; /* 'cover' preenche o container, 'contain' mostra a imagem inteira com bordas */
-    filter: brightness(0.7); /* Escurece um pouco a imagem para o texto ficar legível */
+    object-fit: cover; 
+    filter: brightness(0.7); 
 }
 
-/* Efeito de hover nos links da barra lateral */
 .hover-sidebar:hover {
   background-color: #f8f9fa !important;
   color: #ffc107 !important;
   transition: all 0.2s ease-in-out;
 }
 
-/* Animação e comportamento dos Cards de Estatísticas e Ações */
 .card-stat, .card-action {
   transition: transform 0.2s, border-color 0.2s;
 }
@@ -142,7 +132,6 @@ aside ul li {
   border-color: #ffc107 !important;
 }
 
-/* Botões do Sistema */
 .btn {
   border-radius: 8px;
   transition: 0.3s;
@@ -152,18 +141,12 @@ aside ul li {
   transform: scale(1.05);
 }
 
-/* ==========================================================================
-   MUDANÇA DO PRETO PARA O AMARELO (CORRIGIDO)
-   ========================================================================== */
-
-/* 1. Altera o texto "Listagem de Livros" e o ícone de marcador para Amarelo */
 .custom-card h3, 
 .custom-card h3 i,
 .custom-card h3.text-dark {
   color: #ffc107 !important;
 }
 
-/* 2. Força os cabeçalhos da tabela do Bootstrap (.table-dark) a ficarem amarelos com letras pretas */
 .table thead.table-dark th {
   background-color: #ffc107 !important;
   color: #000000 !important;
@@ -171,9 +154,6 @@ aside ul li {
   border-bottom: 2px solid #bfa100;
 }
 
-/* ==========================================================================
-   RESPONSIVIDADE (MEDIA QUERIES)
-   ========================================================================== */
 @media (max-width: 768px) {
   header .container {
     flex-direction: column;
