@@ -156,7 +156,7 @@ if (!empty($_POST) && !empty($_POST['valor'])) {
                        href='reservasList.php?id={$item->id}&acao=excluir'>
                        Excluir
                     </a>
-                  </td>
+                  </utd>
                 </tr>";
             }
         }
